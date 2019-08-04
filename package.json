@@ -63,6 +63,7 @@
     "sass-loader": "7.1.0",
     "semver": "6.0.0",
     "style-loader": "0.23.1",
+    "tailwindcss": "^1.0.6",
     "terser-webpack-plugin": "1.2.3",
     "ts-pnp": "1.1.2",
     "typescript": "3.5.3",
@@ -74,8 +75,9 @@
     "workbox-webpack-plugin": "4.2.0"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "tailwind:css":"tailwind build src/tailwind.src.css -c  tailwind.js -o src/tailwind.css",
+    "start": "npm run tailwind:css && node scripts/start.js",
+    "build": "npm run tailwind:css && node scripts/build.js",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {

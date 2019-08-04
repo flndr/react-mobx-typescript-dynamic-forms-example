@@ -56,15 +56,15 @@ export default class Mapping<I, O> {
     
     public likeThis( mappingFunction : ( input : I ) => O ) : O {
         this.checkClasses();
-        const inputInstance  = plainToClass( this.inputClass!, this.inputPlain );
+        const inputInstance = plainToClass( this.inputClass!, this.inputPlain );
         return plainToClass( this.outputClass!, mappingFunction( inputInstance ) );
     }
     
-    public  async withOutputValidation( mappingFunction : ( input : I ) => O ) : Promise<O> {
+    public async withOutputValidation( mappingFunction : ( input : I ) => O ) : Promise<O> {
         this.checkClasses();
         const inputInstance  = plainToClass( this.inputClass!, this.inputPlain );
         const outputInstance = plainToClass( this.outputClass!, mappingFunction( inputInstance ) );
-    
+        
         await Mapping.validate<O>( outputInstance, Mapping.OUTPUT_VALIDATION_ERROR );
         
         return outputInstance;

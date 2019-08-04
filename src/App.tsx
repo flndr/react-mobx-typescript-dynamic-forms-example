@@ -9,14 +9,14 @@ api.getItems()
 
 const App : React.FC = () => {
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={ logo } className="App-logo" alt="logo"/>
-                <p>
+        <div className="text-center">
+            <header className="bg-purple-darker m-6 p-6">
+                <img src={ logo } className="center" alt="logo"/>
+                <p className="m-6">
                     Edit <code>src/App.tsx</code> and save to reload.
                 </p>
                 <a
-                    className="App-link"
+                    className="m-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     href="https://reactjs.org"
                     target="_blank"
                     rel="noopener noreferrer"

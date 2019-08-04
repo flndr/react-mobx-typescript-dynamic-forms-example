@@ -21,7 +21,8 @@
       "baseUrl": "src",
       "experimentalDecorators" : true,
       "emitDecoratorMetadata" : true,
-      "strictPropertyInitialization" : false
+      "strictPropertyInitialization" : false,
+      "strictNullChecks" : true
   },
   "include": [
     "src"

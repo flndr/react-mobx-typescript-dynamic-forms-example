@@ -5,7 +5,7 @@ import Mapping from 'Helpers/Typescript/Mapping';
 import { Item as ItemFromAPI, ItemDateFormat, ItemSize as ItemSizeFromAPI } from 'API/Models/Item';
 import { Item as ItemForUI, ItemSize as ItemSizeForUI }                     from 'Models/UI/Item';
 
-const ItemToUI = async ( i : ItemFromAPI ) =>
+export default async ( i : ItemFromAPI ) =>
     (new Mapping<ItemFromAPI, ItemForUI>())
     .of( ItemFromAPI, i )
     .to( ItemForUI )
@@ -13,8 +13,7 @@ const ItemToUI = async ( i : ItemFromAPI ) =>
         const itemForUI = new ItemForUI();
         itemForUI.name  = itemFromApi.name;
         
-        
-        itemForUI.date  = moment( itemFromApi.date, ItemDateFormat ).toDate();
+        itemForUI.date = moment( itemFromApi.date, ItemDateFormat ).toDate();
         
         switch ( itemFromApi.properties.size ) {
             case ItemSizeFromAPI.Default :
@@ -37,5 +36,3 @@ const ItemToUI = async ( i : ItemFromAPI ) =>
         }
         return itemForUI;
     } );
-
-export default ItemToUI;
